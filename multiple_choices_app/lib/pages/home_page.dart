@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:multiple_choices_app/components/selectable_option.dart';
 import 'package:multiple_choices_app/pages/subpages/first_subpage.dart';
 import 'package:multiple_choices_app/pages/subpages/second_subpage.dart';
 
@@ -12,7 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var progression = 1;
-  Widget subpage = FirstSubpage();
+  Widget subpage = const FirstSubpage();
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +69,43 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               subpage,
-              ElevatedButton(onPressed: () {
-                setState(() {
-                  subpage = SecondSubpage();
-                });
-              }, child: Text("Coucou"))
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      subpage = const SecondSubpage();
+                    });
+                  },
+                  child: const Text("Coucou")),
+
+              //Boutons personnalisé 1
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    progression = 2;
+                  });
+                },
+                child: Container(
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Icon(
+                    Icons.ac_unit,
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.ac_unit),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  )
+                )
+              ),
             ],
           ),
         ),

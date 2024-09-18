@@ -26,9 +26,17 @@ class _SelectableOptionState extends State<SelectableOption> {
         width: MediaQuery.of(context).size.width - 40,
         height: 65,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, spreadRadius: 2, offset: Offset(0, 10))]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              spreadRadius: 2,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
         child: Row(
           children: [
             AnimatedContainer(
@@ -45,7 +53,7 @@ class _SelectableOptionState extends State<SelectableOption> {
             Text(
               widget.title,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(0xFF2B2B2F),
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
