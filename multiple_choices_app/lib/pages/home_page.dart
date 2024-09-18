@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var progression = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
+              padding: const EdgeInsets.symmetric(vertical:  25),
               child: RichText(
                 textAlign: TextAlign.center,
                 text: const TextSpan(
@@ -40,6 +41,26 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width - 40,
+              height: 5,
+              decoration: BoxDecoration(
+                color: const Color(0xFFCEC1E9),
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5 * progression,
+                    height: 5,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF601AE0),
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
