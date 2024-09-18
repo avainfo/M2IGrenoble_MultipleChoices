@@ -11,10 +11,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFEDEFF3),
       body: SafeArea(
         child: Column(
           children: [
-            
             Container(
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
