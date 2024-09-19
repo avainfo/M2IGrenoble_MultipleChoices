@@ -1,6 +1,8 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:multiple_choices_app/pages/subpages/first_subpage.dart';
-import 'package:multiple_choices_app/pages/subpages/second_subpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var progression = 1;
   Widget subpage = const FirstSubpage();
+  var soins = ["Cheveux", "Peau", "soins digestifs"];
 
   @override
   Widget build(BuildContext context) {
@@ -68,14 +71,15 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              subpage,
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      subpage = const SecondSubpage();
-                    });
-                  },
-                  child: const Text("Coucou")),
+              // subpage,
+              // ElevatedButton(
+              //   onPressed: () {
+              //     setState(() {
+              //       subpage = const SecondSubpage();
+              //     });
+              //   },
+              //   child: const Text("Coucou"),
+              // ),
 
               //Boutons personnalisé 1
               GestureDetector(
@@ -83,6 +87,8 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     progression = 2;
                   });
+                  print("TEEEST");
+                  if(kDebugMode) log("test");
                 },
                 child: Container(
                   width: 250,
@@ -103,8 +109,40 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
-                  )
-                )
+                  ),
+                ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        for (var e in soins)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            width: MediaQuery.of(context).size.width / 2 - 40,
+                            height: 50,
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: Center(
+                              child: Text(
+                                e,
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
