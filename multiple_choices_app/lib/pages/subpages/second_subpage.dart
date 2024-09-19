@@ -17,7 +17,7 @@ class _SecondSubpageState extends State<SecondSubpage> {
       child: Column(
         children: [
           Text(
-            "What kind of insurance do you need?",
+            "Coucou",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xFF2B2B2F),
